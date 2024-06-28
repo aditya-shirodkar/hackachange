@@ -18,3 +18,6 @@ def load_llm(open_ai_api_key):
         api_key=open_ai_api_key,
         temperature=0.5,
     )
+
+if __name__ == "__main__":
+    main()
