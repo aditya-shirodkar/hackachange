@@ -37,12 +37,6 @@ def load_video(vid):
     vid_placeholder = st.empty()
     vid_placeholder.video(data=data)
 
-    button_90 = st.button("Go to 90 secs")
-
-    if button_90:
-        vid_placeholder.empty()
-        vid_placeholder.video(data=data, start_time=90)
-
     return vid_placeholder
 
 
