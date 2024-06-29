@@ -21,7 +21,7 @@ def main():
     question = st.text_input("Question")
     response, timestamps = ask_question(question, vid_option)
 
-    response_buttons(response, timestamps, vid_placeholder)
+    response_buttons(response, timestamps, vid_placeholder, vid)
 
 
 def vid_picker(vid_option):
@@ -55,22 +55,18 @@ def ask_question(question, vid_option):
     if question == "def":
         return "asbfisfsufh", [60, 90, 120]
     else:
-        return "", [0]
+        return "", []
 
 
-def response_buttons(response, timestamps, vid_placeholder):
-    st.write(response)
-    timestamp_buttons = st.radio(
+def response_buttons(response, timestamps, vid_placeholder, vid):
+    timestamp_choice = st.radio(
         response,
         timestamps,
     )
 
-
-# def load_llm(open_ai_api_key):
-#     return ChatOpenAI(
-#         model="gpt-4o",
-#         temperature=0.5,
-#     )
+    if timestamp_choice:
+        vid_placeholder.empty()
+        vid_placeholder.video(data=vid, start_time=timestamp_choice)
 
 
 if __name__ == "__main__":
