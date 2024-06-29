@@ -16,10 +16,12 @@ def main():
         ),
     )
     vid = vid_picker(vid_option)
-    load_video(vid)
+    vid_placeholder = load_video(vid)
 
     question = st.text_input("Question")
-    ask_question(question, vid_option)
+    response, timestamps = ask_question(question, vid_option)
+
+    response_buttons(response, timestamps, vid_placeholder)
 
 
 def vid_picker(vid_option):
@@ -42,10 +44,26 @@ def load_video(vid):
         vid_placeholder.empty()
         vid_placeholder.video(data=data, start_time=90)
 
+    return vid_placeholder
+
 
 def ask_question(question, vid_option):
     subtitle_filename = vid_option + ".txt"
-    pass
+
+    if question == "abc":
+        return "blahblah", [10, 20]
+    if question == "def":
+        return "asbfisfsufh", [60, 90, 120]
+    else:
+        return "", [0]
+
+
+def response_buttons(response, timestamps, vid_placeholder):
+    st.write(response)
+    timestamp_buttons = st.radio(
+        response,
+        timestamps,
+    )
 
 
 # def load_llm(open_ai_api_key):
