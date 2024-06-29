@@ -13,11 +13,15 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
+import sys
 
 
 path_to_transcripts = "./subtitles"
 
 os.environ["GOOGLE_API_KEY"] = st.secrets["google_genai_api_key"]
+
+__import__("pysqlite3")
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 
 def extract_timestamp(string):

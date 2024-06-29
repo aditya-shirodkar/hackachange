@@ -2,4 +2,5 @@ langchain
 langchain_google_genai
 langchain_community
 chromadb
+pysqlite3-binary
 streamlit
