@@ -1,6 +1,5 @@
-# pip install streamlit, langchain-openai
-
 import streamlit as st
+from q_and_a import ask_question
 
 
 def main():
@@ -45,17 +44,6 @@ def load_video(vid):
         vid_placeholder.video(data=data, start_time=90)
 
     return vid_placeholder
-
-
-def ask_question(question, vid_option):
-    subtitle_filename = vid_option + ".txt"
-
-    if question == "abc":
-        return "blahblah", [10, 20]
-    if question == "def":
-        return "asbfisfsufh", [60, 90, 120]
-    else:
-        return "", []
 
 
 def response_buttons(response, timestamps, vid_placeholder, vid):

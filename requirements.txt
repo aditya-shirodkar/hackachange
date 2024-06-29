@@ -1,3 +1,5 @@
 langchain
-langchain-openai
+langchain_google_genai
+langchain_community
+chromadb
 streamlit
